@@ -1,0 +1,193 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+  background: #f6f7fb;
+  color: #222;
+}
+
+.page {
+  display: none;
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 40px 20px 120px;
+}
+
+.active {
+  display: block;
+}
+
+button {
+  padding: 12px 18px;
+  border-radius: 24px;
+  border: none;
+  background: #ddd;
+  cursor: pointer;
+}
+
+button:active {
+  transform: scale(0.96);
+}
+
+/* ===== 進捗 ===== */
+
+.progress-text {
+  font-size: 16px;
+  opacity: 0.6;
+  margin-bottom: 6px;
+}
+
+.progress {
+  height: 2px;
+  background: #ddd;
+  margin-bottom: 20px;
+}
+
+#bar {
+  height: 3px;
+  width: 0%;
+  background: linear-gradient(90deg,#ff7a7a,#7aa7ff);
+  transition: width 0.3s;
+}
+
+/* ===== 設問 ===== */
+
+.question {
+  margin: 60px 0;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: all 0.4s ease;
+}
+
+.question.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.q-text {
+  margin-bottom: 24px;
+  line-height: 1.8;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+/* ===== スケール ===== */
+
+.scale-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.scale-label {
+  font-size: 14px;
+  opacity: 0.5;
+  white-space: nowrap;
+}
+
+.scale-block {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.scale {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.scale button {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  opacity: 0.4;
+  transition: all 0.15s ease;
+}
+
+.scale button.active {
+  opacity: 1;
+  transform: scale(1.25);
+  box-shadow:
+    0 0 0 3px #fff,
+    0 0 0 5px rgba(0,0,0,0.4);
+}
+
+/* グラデーション */
+.scale button[data-value="2"]  { background:#ff7a7a; }  /* 強くそう思う */
+.scale button[data-value="1"]  { background:#ffb3a7; }
+.scale button[data-value="0"]  { background:#ddd; }
+.scale button[data-value="-1"] { background:#a7c7ff; }
+.scale button[data-value="-2"] { background:#7aa7ff; }  /* 強くそう思わない */
+
+/* 中央ラベル */
+.scale-center-label {
+  margin-top: 6px;
+  font-size: 12px;
+  opacity: 0.4;
+}
+
+/* ===== ボタン ===== */
+
+.next-btn {
+  display: block;
+  margin: 30px auto 0;
+}
+
+/* ===== 結果 ===== */
+
+.section-title {
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 40px;
+  margin-bottom: 14px;
+  opacity: 0.8;
+  position: relative;
+  padding-bottom: 6px;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    rgba(0,0,0,0.25),
+    rgba(0,0,0,0.05)
+  );
+  margin-top: 6px;
+}
+
+.analysis-text {
+  line-height: 1.8;
+  white-space: pre-line;
+  opacity: 0.9;
+}
+
+canvas {
+  max-width: 100%;
+  margin-top: 10px;
+}
+
+.code-header {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.code-label {
+  font-size: 14px;
+  opacity: 0.6;
+}
+
+.codebox {
+  margin-top: 10px;
+  padding: 12px;
+  background: #eee;
+  border-radius: 8px;
+  font-size: 14px;
+  overflow-x: auto;
+}

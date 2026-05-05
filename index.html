@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>共鳴傾向測定-RET式-</title>
+
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+<!-- TOP -->
+<div id="top" class="page active">
+  <h1>共鳴傾向測定-RET式-</h1>
+  <p>
+    現在のあなたの傾向を測定します。<br>
+    結果は状態により変容します。
+  </p>
+  <button onclick="start()">はじめる</button>
+</div>
+
+<!-- QUIZ -->
+<div id="quiz" class="page">
+
+  <div id="progressText" class="progress-text">0 / 0</div>
+  <div class="progress"><div id="bar"></div></div>
+
+  <div id="questions"></div>
+
+  <button id="nextBtn" class="next-btn" onclick="nextQuestion()">次へ</button>
+</div>
+
+<!-- RESULT -->
+<div id="result" class="page">
+
+  <h2 class="section-title">測定結果</h2>
+  <canvas id="chart"></canvas>
+
+  <h2 class="section-title">分析</h2>
+  <p id="analysis" class="analysis-text"></p>
+
+  <h2 class="section-title">データ出力</h2>
+
+  <div class="code-header">
+    <div class="code-label">
+      以下データを基にAIに再解釈させることができます
+    </div>
+    <button onclick="copyCode()">copy</button>
+  </div>
+
+  <div class="codebox" id="code"></div>
+
+  <button class="next-btn" onclick="restart()">もう一度はじめる</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
