@@ -1,0 +1,31 @@
+[
+  {
+    "id": "relation_echo",
+    "label": "関係残響"
+  },
+
+  {
+    "id": "recursive",
+    "label": "内部再帰"
+  },
+
+  {
+    "id": "boundary",
+    "label": "境界変動"
+  },
+
+  {
+    "id": "stability",
+    "label": "安定保持"
+  },
+
+  {
+    "id": "drift",
+    "label": "状態漂流"
+  },
+
+  {
+    "id": "synchronization",
+    "label": "同期傾向"
+  }
+]

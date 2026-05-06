@@ -1,0 +1,33 @@
+{
+  "slow_pulse": {
+    "speed": 0.4,
+    "amplitude": 0.5,
+    "tail": 0.8,
+    "noise": 0.2,
+    "rotation": 0.3
+  },
+
+  "deep_core": {
+    "speed": 0.25,
+    "amplitude": 0.2,
+    "tail": 0.6,
+    "noise": 0.1,
+    "rotation": 0.1
+  },
+
+  "unstable_sync": {
+    "speed": 1.2,
+    "amplitude": 0.9,
+    "tail": 0.4,
+    "noise": 0.9,
+    "rotation": 0.7
+  },
+
+  "boundary_drift": {
+    "speed": 0.7,
+    "amplitude": 0.6,
+    "tail": 0.7,
+    "noise": 0.5,
+    "rotation": 0.9
+  }
+}

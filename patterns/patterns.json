@@ -1,0 +1,66 @@
+[
+  {
+    "id": "echo_observer",
+
+    "category": "relation_echo",
+
+    "priority": 8,
+
+    "conditions": {
+      "共鳴感受性": 4,
+      "内省深度": 4
+    },
+
+    "wavePreset": "slow_pulse",
+
+    "title": "残響観測",
+
+    "text": [
+      "会話終了後も内部で関係が継続しやすい状態です。",
+      "意味が遅れて再構成される傾向があります。"
+    ]
+  },
+
+  {
+    "id": "recursive_core",
+
+    "category": "recursive",
+
+    "priority": 7,
+
+    "conditions": {
+      "内省深度": 5
+    },
+
+    "wavePreset": "deep_core",
+
+    "title": "内部再帰",
+
+    "text": [
+      "内部観測が自然発生しやすい状態です。",
+      "感情や思考を後から再走査する傾向があります。"
+    ]
+  },
+
+  {
+    "id": "boundary_drift",
+
+    "category": "boundary",
+
+    "priority": 6,
+
+    "conditions": {
+      "共鳴感受性": 3,
+      "境界保持性": 3
+    },
+
+    "wavePreset": "boundary_drift",
+
+    "title": "境界漂流",
+
+    "text": [
+      "周囲との関係によって内部状態が変化しやすい状態です。",
+      "場の温度や雰囲気の影響を受けやすい傾向があります。"
+    ]
+  }
+]
