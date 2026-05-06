@@ -2,7 +2,11 @@ import { state } from './core/state.js'
 
 import { switchView } from './ui/views.js'
 
-import { renderQuestions } from './ui/questions.js'
+import {
+  renderQuestions,
+  validateCurrentPage,
+  resetQuestions
+} from './ui/questions.js'
 
 import { createSnapshot } from './core/snapshot.js'
 
@@ -18,23 +22,8 @@ const startBtn =
 const nextBtn =
   document.getElementById('nextBtn')
 
-const copyBtn =
-  document.getElementById('copyBtn')
-
-startBtn.addEventListener(
-  'click',
-  start
-)
-
-nextBtn.addEventListener(
-  'click',
-  next
-)
-
-copyBtn.addEventListener(
-  'click',
-  copySnapshot
-)
+const restartBtn =
+  document.getElementById('restartBtn')
 
 init()
 
@@ -45,6 +34,21 @@ async function init(){
 
   state.questions =
     await response.json()
+
+  startBtn.addEventListener(
+    'click',
+    start
+  )
+
+  nextBtn.addEventListener(
+    'click',
+    next
+  )
+
+  restartBtn.addEventListener(
+    'click',
+    restart
+  )
 }
 
 function start(){
@@ -52,9 +56,20 @@ function start(){
   switchView('questionView')
 
   renderQuestions()
+
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  })
 }
 
 async function next(){
+
+  if(
+    !validateCurrentPage()
+  ){
+    return
+  }
 
   const container =
     document.getElementById(
@@ -79,7 +94,10 @@ async function next(){
       / state.pageSize
     )
 
-  if(state.currentPage >= totalPages){
+  if(
+    state.currentPage
+    >= totalPages
+  ){
 
     const snapshot =
       createSnapshot(
@@ -91,12 +109,12 @@ async function next(){
     snapshot.interpretation =
       interpretState(snapshot)
 
+    window.currentSnapshot =
+      snapshot
+
     switchView('resultView')
 
     renderResult(snapshot)
-
-    window.currentSnapshot =
-      snapshot
 
     window.scrollTo({
       top: 0,
@@ -122,20 +140,32 @@ async function next(){
   )
 }
 
-async function copySnapshot(){
+function restart(){
 
-  if(!window.currentSnapshot){
-    return
-  }
+  resetQuestions()
 
-  await navigator.clipboard.writeText(
+  window.currentSnapshot =
+    null
 
-    JSON.stringify(
-      window.currentSnapshot,
-      null,
-      2
+  const container =
+    document.getElementById(
+      'questionContainer'
     )
+
+  container.classList.remove(
+    'transition-out'
   )
+
+  container.classList.remove(
+    'transition-in'
+  )
+
+  switchView('topView')
+
+  window.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  })
 }
 
 function sleep(ms){
@@ -143,5 +173,6 @@ function sleep(ms){
   return new Promise(resolve => {
 
     setTimeout(resolve, ms)
+
   })
 }

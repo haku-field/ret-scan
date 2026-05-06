@@ -1,7 +1,8 @@
 import { startField } from '../field/renderer.js'
 
 import {
-  createBridgeText,
+  createBridgeHeader,
+  createBridgeBody,
   createBridgePayload
 } from '../core/bridge.js'
 
@@ -52,13 +53,21 @@ function renderPatterns(snapshot){
 
 function renderBridge(snapshot){
 
-  const bridgeText =
+  const bridgeHeader =
     document.getElementById(
-      'bridgeText'
+      'bridgeHeader'
     )
 
-  bridgeText.innerText =
-    createBridgeText(snapshot)
+  bridgeHeader.innerText =
+    createBridgeHeader(snapshot)
+
+  const bridgeBody =
+    document.getElementById(
+      'bridgeBody'
+    )
+
+  bridgeBody.innerText =
+    createBridgeBody(snapshot)
 
   const copyBtn =
     document.getElementById(
@@ -68,16 +77,29 @@ function renderBridge(snapshot){
   copyBtn.onclick =
     async ()=>{
 
+      const payload =
+        createBridgePayload(
+          snapshot
+        )
+
       await navigator.clipboard
         .writeText(
 
           JSON.stringify(
-            createBridgePayload(
-              snapshot
-            ),
+            payload,
             null,
             2
           )
         )
+
+      copyBtn.innerText =
+        'コピーしました'
+
+      setTimeout(()=>{
+
+        copyBtn.innerText =
+          'snapshot をコピー'
+
+      }, 1600)
     }
 }

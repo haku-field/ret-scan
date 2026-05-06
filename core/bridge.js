@@ -54,7 +54,7 @@ export function createBridgePayload(
   }
 }
 
-export function createBridgeText(
+export function createBridgeHeader(
   snapshot
 ){
 
@@ -80,20 +80,23 @@ export function createBridgeText(
       ).padStart(2,'0')
     }`
 
-  return `Bridge Ready
-
-現在状態をAIへ共有できます。
-
-────────────────
-
-RET Snapshot
+  return `RET Snapshot
 ${timestamp}
 
-現在強く現れている状態
+現在状態をAIへ共有できます。`
+}
+
+export function createBridgeBody(
+  snapshot
+){
+
+  return `────────────────
+
+［現在強く現れている状態］
 
 ${renderPatterns(snapshot)}
 
-状態密度
+［状態密度］
 
 共鳴感受性   ${bar(snapshot.scores['共鳴感受性'])}
 境界保持性   ${bar(snapshot.scores['境界保持性'])}

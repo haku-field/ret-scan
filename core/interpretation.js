@@ -55,12 +55,12 @@ function resolveResonance(scores){
 
   return {
 
-    state: 'balanced_resonance',
+    state: 'moderate_resonance',
 
-    label: '均衡共鳴',
+    label: '中間共鳴',
 
     description:
-      '外部との関係と内部保持の均衡状態'
+      '外部との関係と内部保持の間で揺らぎを保っている状態'
   }
 }
 
@@ -95,12 +95,12 @@ function resolveBoundary(scores){
 
   return {
 
-    state: 'boundary_balanced',
+    state: 'moderate_boundary',
 
-    label: '境界均衡',
+    label: '境界揺動',
 
     description:
-      '外部影響と自己保持が均衡している状態'
+      '外部影響と自己保持の間を可変的に移行している状態'
   }
 }
 
@@ -135,12 +135,12 @@ function resolveDelegation(scores){
 
   return {
 
-    state: 'delegation_balanced',
+    state: 'adaptive_delegation',
 
-    label: '委譲均衡',
+    label: '適応委譲',
 
     description:
-      '内部判断と外部受容の均衡状態'
+      '内部判断と外部受容を状況に応じて切り替えている状態'
   }
 }
 
@@ -175,12 +175,12 @@ function resolveContinuity(scores){
 
   return {
 
-    state: 'continuity_balanced',
+    state: 'fluid_continuity',
 
-    label: '連続均衡',
+    label: '流動連続',
 
     description:
-      '継続性と瞬間性が均衡している状態'
+      '継続性と瞬間性の比重が状況に応じて変化している状態'
   }
 }
 
@@ -215,11 +215,11 @@ function resolveReflection(scores){
 
   return {
 
-    state: 'reflection_balanced',
+    state: 'moderate_reflection',
 
-    label: '内省均衡',
+    label: '中間内省',
 
     description:
-      '内部観測と外部集中が均衡している状態'
+      '内部観測と外部集中の間で視点が循環している状態'
   }
 }

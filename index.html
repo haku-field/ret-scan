@@ -4,13 +4,19 @@
 <head>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-FR7YFHM49H"></script>
+
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+
+    function gtag(){
+      dataLayer.push(arguments);
+    }
+
     gtag('js', new Date());
 
     gtag('config', 'G-FR7YFHM49H');
   </script>
+
   <meta charset="UTF-8" />
 
   <meta
@@ -24,7 +30,6 @@
     rel="stylesheet"
     href="./style.css"
   />
-
 </head>
 
 <body>
@@ -44,12 +49,12 @@
         </div>
 
         <h1>
-          現在状態の<br>
-          共鳴スナップショット
+          共鳴状態<br>
+          スナップショット
         </h1>
 
         <p>
-          これは固定人格診断ではありません。<br>
+          固定的な人格診断ではありません。<br>
           現在の状態傾向を観測します。
         </p>
 
@@ -106,7 +111,7 @@
         </div>
 
         <h2>
-          現在状態の観測結果
+          共鳴状態・傾向の観測結果
         </h2>
 
       </div>
@@ -130,7 +135,7 @@
 
         <div class="bridge-card">
 
-          <pre id="bridgeText"></pre>
+          <div id="bridgeHeader"></div>
 
           <div class="bridge-actions">
 
@@ -143,13 +148,38 @@
 
           </div>
 
+          <pre id="bridgeBody"></pre>
+
         </div>
+
+      </div>
+
+      <div class="result-actions">
+
+        <button
+          id="restartBtn"
+          class="ghost-btn"
+        >
+          もう一度、測定する
+        </button>
 
       </div>
 
     </section>
 
   </main>
+
+  <footer class="site-footer">
+
+    <div>
+      © 2026 RET scan
+    </div>
+
+    <div class="footer-policy">
+      This site uses Google Analytics for anonymous access analysis.
+    </div>
+
+  </footer>
 
   <script
     type="module"

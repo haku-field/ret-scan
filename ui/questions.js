@@ -9,6 +9,13 @@ export function renderQuestions(){
 
   container.innerHTML = ''
 
+  const nextBtn =
+    document.getElementById(
+      'nextBtn'
+    )
+
+  nextBtn.disabled = false
+
   const start =
     state.currentPage
     * state.pageSize
@@ -55,6 +62,7 @@ export function renderQuestions(){
 
                 <button
                   data-value="${value}"
+                  type="button"
                 ></button>
 
               `)
@@ -82,6 +90,24 @@ export function renderQuestions(){
         'button'
       )
 
+    const savedAnswer =
+      state.answers[i]
+
+    if(savedAnswer !== undefined){
+
+      const activeButton =
+        card.querySelector(
+          `[data-value="${savedAnswer}"]`
+        )
+
+      if(activeButton){
+
+        activeButton.classList.add(
+          'active'
+        )
+      }
+    }
+
     buttons.forEach(button => {
 
       button.addEventListener(
@@ -106,6 +132,8 @@ export function renderQuestions(){
               button.dataset.value
             )
           )
+
+          updateNextButton()
         }
       )
     })
@@ -142,6 +170,53 @@ function applyAnswer(
   updateProgress()
 }
 
+export function validateCurrentPage(){
+
+  const start =
+    state.currentPage
+    * state.pageSize
+
+  const end =
+    Math.min(
+      start + state.pageSize,
+      state.questions.length
+    )
+
+  for(
+    let i = start;
+    i < end;
+    i++
+  ){
+
+    if(
+      state.answers[i]
+      === undefined
+    ){
+
+      return false
+    }
+  }
+
+  return true
+}
+
+export function resetQuestions(){
+
+  state.answers = []
+
+  state.currentPage = 0
+
+  state.scores = {
+    "共鳴感受性": 0,
+    "境界保持性": 0,
+    "委譲許容度": 0,
+    "連続性志向": 0,
+    "内省深度": 0
+  }
+
+  updateProgress()
+}
+
 function updateProgress(){
 
   const done =
@@ -174,6 +249,8 @@ function updateNextButton(){
     document.getElementById(
       'nextBtn'
     )
+
+  nextBtn.disabled = false
 
   const totalPages =
     Math.ceil(
