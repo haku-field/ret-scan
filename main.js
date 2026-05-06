@@ -16,6 +16,8 @@ import { interpretState } from './core/interpretation.js'
 
 import { renderResult } from './ui/result.js'
 
+import { buildQuestionSet } from './data/questionPools.js'
+
 const startBtn =
   document.getElementById('startBtn')
 
@@ -29,11 +31,8 @@ init()
 
 async function init(){
 
-  const response =
-    await fetch('./data/questions.json')
-
   state.questions =
-    await response.json()
+    buildQuestionSet()
 
   startBtn.addEventListener(
     'click',
@@ -143,6 +142,9 @@ async function next(){
 function restart(){
 
   resetQuestions()
+
+  state.questions =
+    buildQuestionSet()
 
   window.currentSnapshot =
     null
