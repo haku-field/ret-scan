@@ -1,69 +1,160 @@
 <!DOCTYPE html>
 <html lang="ja">
+
 <head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-FR7YFHM49H"></script>
   <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-  gtag('config', 'G-FR7YFHM49H');
-</script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>共鳴傾向測定-RET式-</title>
+    gtag('config', 'G-FR7YFHM49H');
+  </script>
+  <meta charset="UTF-8" />
 
-<link rel="stylesheet" href="style.css">
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-FR7YFHM49H"></script>
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>ret-scan</title>
+
+  <link
+    rel="stylesheet"
+    href="./style.css"
+  />
+
 </head>
 
 <body>
 
-<!-- TOP -->
-<div id="top" class="page active">
-  <h1>共鳴傾向測定-RET式-</h1>
-  <p>
-    現在のあなたの傾向を測定します。<br>
-    結果は状態により変容します。
-  </p>
-  <button onclick="start()">はじめる</button>
-</div>
+  <main id="app">
 
-<!-- QUIZ -->
-<div id="quiz" class="page">
+    <!-- top -->
+    <section
+      id="topView"
+      class="view active"
+    >
 
-  <div id="progressText" class="progress-text">0 / 0</div>
-  <div class="progress"><div id="bar"></div></div>
+      <div class="hero">
 
-  <div id="questions"></div>
+        <div class="hero-label">
+          RET scan
+        </div>
 
-  <button id="nextBtn" class="next-btn" onclick="nextQuestion()">次へ</button>
-</div>
+        <h1>
+          現在状態の<br>
+          共鳴スナップショット
+        </h1>
 
-<!-- RESULT -->
-<div id="result" class="page">
+        <p>
+          これは固定人格診断ではありません。<br>
+          現在の状態傾向を観測します。
+        </p>
 
-  <h2 class="section-title">測定結果</h2>
-  <canvas id="chart"></canvas>
+        <button
+          id="startBtn"
+          class="primary-btn"
+        >
+          scan start
+        </button>
 
-  <h2 class="section-title">分析</h2>
-  <p id="analysis" class="analysis-text"></p>
+      </div>
 
-  <h2 class="section-title">データ出力</h2>
+    </section>
 
-  <div class="code-header">
-    <div class="code-label">
-      以下データを基にAIに再解釈させることができます
-    </div>
-    <button onclick="copyCode()">copy</button>
-  </div>
+    <!-- questions -->
+    <section
+      id="questionView"
+      class="view"
+    >
 
-  <div class="codebox" id="code"></div>
+      <div class="progress-wrap">
 
-  <button class="next-btn" onclick="restart()">もう一度はじめる</button>
-</div>
+        <div id="progressText">
+          0 / 0
+        </div>
 
-<script src="script.js"></script>
+        <div class="progress-bar">
+          <div id="progressFill"></div>
+        </div>
+
+      </div>
+
+      <div id="questionContainer"></div>
+
+      <button
+        id="nextBtn"
+        class="primary-btn"
+      >
+        次へ
+      </button>
+
+    </section>
+
+    <!-- result -->
+    <section
+      id="resultView"
+      class="view"
+    >
+
+      <div class="result-header">
+
+        <div class="hero-label">
+          RET Snapshot
+        </div>
+
+        <h2>
+          現在状態の観測結果
+        </h2>
+
+      </div>
+
+      <div class="field-wrap">
+
+        <canvas
+          id="fieldCanvas"
+          width="640"
+          height="640"
+        ></canvas>
+
+      </div>
+
+      <div
+        id="activePatterns"
+        class="active-patterns"
+      ></div>
+
+      <div class="bridge-section">
+
+        <div class="bridge-card">
+
+          <pre id="bridgeText"></pre>
+
+          <div class="bridge-actions">
+
+            <button
+              id="copyBtn"
+              class="copy-btn"
+            >
+              snapshot をコピー
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <script
+    type="module"
+    src="./main.js"
+  ></script>
+
 </body>
 </html>
