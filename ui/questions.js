@@ -70,10 +70,6 @@ export function renderQuestions(){
 
           </div>
 
-          <div class="scale-center">
-            どちらでもない
-          </div>
-
         </div>
 
         <div class="scale-label">

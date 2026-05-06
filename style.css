@@ -677,6 +677,19 @@ button:active {
   }
 }
 
+#bridgeHeader {
+
+  white-space: pre-wrap;
+
+  line-height: 1.9;
+
+  font-size: 13px;
+
+  opacity: 0.78;
+
+  margin-bottom: 18px;
+}
+
 @media (max-width: 640px){
 
   .view {
@@ -702,51 +715,62 @@ button:active {
 
   .scale-wrap {
 
-    grid-template-columns:
-      1fr;
+    display: flex;
 
-    gap: 12px;
+    flex-direction: column;
+
+    gap: 10px;
+  }
+
+  .scale-label:first-child {
+
+    display: none;
+  }
+
+  .scale-label:last-child {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    width: 100%;
+
+    font-size: 12px;
+
+    opacity: 0.45;
+  }
+
+  .scale-label:last-child::before {
+
+    content: "そう思う";
+  }
+
+  .scale-block {
+
+    width: 100%;
   }
 
   .scale {
 
     width: 100%;
 
+    display: flex;
+
     justify-content: center;
 
-    gap: 8px;
+    gap: 12px;
 
     flex-wrap: nowrap;
   }
 
-  .scale-label {
+  .scale-center {
 
-    white-space: normal;
-
-    line-height: 1.4;
-
-    font-size: 12px;
+    display: none;
   }
 
-  .scale button {
+  .progress-wrap {
 
-    width: 34px;
-
-    height: 34px;
-
-    min-width: 34px;
+    padding:
+      12px 18px 16px;
   }
-}
-
-#bridgeHeader {
-
-  white-space: pre-wrap;
-
-  line-height: 1.9;
-
-  font-size: 13px;
-
-  opacity: 0.78;
-
-  margin-bottom: 18px;
 }
